@@ -1,5 +1,5 @@
 /* Global CSS Document */
-@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700i,900&display=swap');
 *{margin: 0px;padding: 0px;}
 .clear{clear: both;}
 body{
@@ -99,4 +99,13 @@ body{
 }
 .status{
 	height: 170px;
+	text-align: center;
+	line-height: 37px;
+	padding-top: 40px;
+}
+.status p{
+	font-family: 'Roboto', sans-serif;
+	font-size: 1em;
+	color: #3c3c3c;
+	font-weight: 400;
 }
