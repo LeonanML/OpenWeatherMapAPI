@@ -1,4 +1,47 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="topBar">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>weather in your city</h1>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-5">
+          <form (submit)="submitLocation(city)" class="defaultForm">
+            <input type="text" name="inputCity" placeholder="City"  #city required/>
+            <button class='searchBtn'><i class='ion-search'></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
+  <div class="contentBody">
+    <div class="container">
+      <div class="row d-flex justify-content-center">
+        
+        <div *ngIf="weather" class="col col-md-7 weatherInfo"> <!-- Search Result -->
+            <div class="col-md-4 col-sm-4 weather">
+                <h3>{{weather.main.temp}}°C</h3> <!-- Temperatura -->
+            </div>
+            <div class="col-md-4 col-sm-4 location">
+                <h2>{{weather.name}}, {{weather.sys.country}} <img src="http://openweathermap.org/images/flags/{{weather.sys.country.toLowerCase()}}.png"></h2><!-- Nome da Cidade -->
+                <p class="w1"><span>Máx</span>&nbsp;&nbsp;{{weather.main.temp_max}} °C</p>
+                <p class="w2"><span>Min</span>&nbsp;&nbsp;{{weather.main.temp_min}} °C</p>
+            </div>
+            <div class="col-md-4 col-sm-4 status" text-align="center">
+                <img src="https://openweathermap.org/img/w/{{weather.weather[0].icon}}.png">
+                <p>{{weather.weather[0].description}}</p>
+            </div>
+        </div> <!-- END Search Result -->
+        
+        <!-- maybe another col here =] -->
+        
+      </div>
+      
+      
+    </div>
+  </div>
 <router-outlet></router-outlet>

@@ -7,18 +7,35 @@ import { WeatherService } from './services/weather.service';
 })
 export class AppComponent implements OnInit {
 
+  weather;
+
   constructor(private weatherServices: WeatherService){
 
   }
 
   ngOnInit(){
-    this.weatherServices.getWeather('Curitiba')
+    
+  }
+
+  getWeather(city: string){
+    this.weatherServices.getWeather(city)
     .subscribe(
-      res => console.log(res),
+      res => {
+        console.log(res);
+        this.weather = res},
       err => console.log(err)
     )
+  }
+
+  submitLocation(city: HTMLInputElement){
 
 
+    this.getWeather(city.value);
+
+    city.value = "";
+    city.focus();
+
+    return false;
   }
 
 
